@@ -1,0 +1,47 @@
+type Trade {
+    _id: String
+    tokenId: String!
+    amount: Float!
+    buyLimit: Float!
+    sellLimit: Float!
+    stopLossLimit: Float!
+    status: String
+    token: Token
+}
+
+type TradeResults {
+    error: String
+    message: String
+    result: [Trade]
+}
+
+type TradeResult {
+    error: String
+    message: String
+    result: Trade
+}
+
+type Query {
+    getTrades(token: Int): TradeResults!
+}
+
+type Mutation {
+    addTrade(
+        tokenId: String!
+        amount: Float!
+        buyLimit: Float!
+        sellLimit: Float!
+        stopLossLimit: Float!
+        status: String
+    ): TradeResult!
+    updateTrade(
+        _id: String!
+        tokenId: String
+        amount: Float
+        buyLimit: Float
+        sellLimit: Float
+        stopLossLimit: Float
+        status: String
+    ): TradeResult!
+    removeTrade(_id: String!): TradeResult!
+}

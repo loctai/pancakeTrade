@@ -1,0 +1,20 @@
+type TokenInfo {
+    _id: String
+    token: String
+    address: String
+    balance: Float
+    bnbBalance: Float
+    busdBalance: Float
+    price: Float
+    bnbPrice: Float
+}
+
+type TokenInfoResult {
+    error: String
+    message: String
+    result: TokenInfo
+}
+
+type Query {
+    getTokenInfo(tokenId: String): TokenInfoResult!
+}

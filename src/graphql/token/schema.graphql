@@ -1,0 +1,44 @@
+type Token {
+    _id: String
+    name: String
+    address: String
+    decimal: Int
+    slug: String
+    base: String
+    info: TokenInfo
+}
+
+type TokenResults {
+    error: String
+    message: String
+    result: [Token]
+}
+
+type TokenResult {
+    error: String
+    message: String
+    result: Token
+}
+
+type Query {
+    getTokens(info: Int): TokenResults!
+}
+
+type Mutation {
+    addToken(
+        name: String
+        address: String
+        decimal: Int
+        slug: String
+        base: String
+    ): TokenResult!
+    updateToken(
+        _id: String!
+        name: String
+        address: String
+        decimal: Int
+        slug: String
+        base: String
+    ): TokenResult!
+    removeToken(_id: String!): TokenResult!
+}

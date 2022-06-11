@@ -1,0 +1,25 @@
+type Log {
+    _id: String
+    message: String
+    details: String
+}
+
+type LogResults {
+    error: String
+    message: String
+    result: [Log]
+}
+
+type LogResult {
+    error: String
+    message: String
+    result: Log
+}
+
+type Query {
+    getLogs: LogResults!
+}
+
+type Mutation {
+    removeLog(_id: String!): LogResult!
+}

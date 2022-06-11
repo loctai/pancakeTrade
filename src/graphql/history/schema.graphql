@@ -1,0 +1,23 @@
+type History {
+    _id: String
+    tokenId: String
+    bought: Float
+    sold: Float
+    profit: Float
+}
+
+type HistoryResults {
+    error: String
+    message: String
+    result: [History]
+}
+
+type HistoryResult {
+    error: String
+    message: String
+    result: History
+}
+
+type Query {
+    getHistories: HistoryResults!
+}
